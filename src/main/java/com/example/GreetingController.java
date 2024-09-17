@@ -29,7 +29,7 @@ public class GreetingController {
 
 	@GetMapping("/hello")
 	public String getHelloHtml() throws IOException {
-		Resource resource = new ClassPathResource("public/hello.html");
+		Resource resource = new ClassPathResource("../resources/public/hello.html");
 		byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
 		return new String(bytes);
 	}	
