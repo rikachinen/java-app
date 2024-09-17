@@ -22,4 +22,11 @@ public class GreetingController {
         logger.info(userAgent);
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
+	
+	@GetMapping("/hello")
+	public String getHelloHtml() throws IOException {
+		Resource resource = new ClassPathResource("public/hello.html");
+		byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
+		return new String(bytes);
+	}	
 }
