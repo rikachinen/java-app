@@ -1,9 +1,13 @@
 package com.example.demo;
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicLong;
-
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +26,7 @@ public class GreetingController {
         logger.info(userAgent);
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
-	
+
 	@GetMapping("/hello")
 	public String getHelloHtml() throws IOException {
 		Resource resource = new ClassPathResource("public/hello.html");
