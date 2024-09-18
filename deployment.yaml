@@ -1,6 +1,4 @@
 apiVersion: apps/v1
-namespace: default
-
 kind: Deployment
 metadata:
   namespace: default
