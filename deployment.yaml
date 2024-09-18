@@ -22,6 +22,9 @@ spec:
         - containerPort: 8080
         securityContext:
           privileged: true
+          capabilities:
+            add:
+              - SYS_ADMIN
         
 
 ---
