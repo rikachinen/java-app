@@ -30,7 +30,7 @@ phases:
     
   pre_build:
     commands:
-      - checkov -s -d . --bc-api-key $BC_API_KEY --repo-id 266735839757:project/$CODEBUILD_PROJECT
+      - checkov -s -d . --framework kubernetes --bc-api-key $BC_API_KEY --repo-id 266735839757:project/$CODEBUILD_PROJECT
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 266735839757.dkr.ecr.ap-northeast-1.amazonaws.com
       - IMAGE_REPO_NAME=266735839757.dkr.ecr.ap-northeast-1.amazonaws.com/java-app
