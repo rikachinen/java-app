@@ -1,6 +1,8 @@
 apiVersion: apps/v1
+
 kind: Deployment
 metadata:
+  namespace: default
   name: java-app-deployment
   labels:
     app: java-app
@@ -23,7 +25,6 @@ spec:
         
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -36,8 +37,3 @@ spec:
       port: 80
       targetPort: 8080
   type: LoadBalancer
-
-
-
-
-
