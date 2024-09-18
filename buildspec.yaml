@@ -1,8 +1,19 @@
 version: 0.2
 
+env:
+  variables:
+      BC_SOURCE: "codebuild"
+      PRISMA_API_URL: "https://api0.prismacloud.io"
+      CODEBUILD_GIT_BRANCH: "main"
+  parameter-store:
+      BC_API_KEY: "bc-api-key"
+
 phases:
   install:
-    commands:
+    runtime-versions:
+      python: 3.12
+        
+    commands:    
       - echo Installing app dependencies...
       - curl -LO https://dl.k8s.io/release/v1.27.2/bin/linux/amd64/kubectl   
       - chmod +x ./kubectl
@@ -11,6 +22,11 @@ phases:
       - source ~/.bashrc
       - echo 'Check kubectl version'
       - kubectl version --short --client
+
+      - pip3 install checkov
+      - echo Installing codebuild-extras...
+      - curl -fsSL https://raw.githubusercontent.com/bridgecrewio/aws-codebuild-extras/master/install >> extras.sh
+      - . ./extras.sh
     
   pre_build:
     commands:
