@@ -38,14 +38,14 @@ public class GreetingController {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 
-	@GetMapping("/hello")
-    public Hello hello(Model model) {
+    @GetMapping("/hello")
+    public String hello(Model model) {
         model.addAttribute("message", "Welcome to My Web App!");
-        return "hello";
+        return "hello";  // Thymeleaf will resolve this to hello.html
     }
 
     @GetMapping("/hellotest")
-    public Hello hello(HttpServletResponse response) throws IOException {
+    public void helloTest(HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
