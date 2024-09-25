@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello!!!</title>
+    <title>My Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #336699;
+        }
+    </style>
 </head>
 <body>
-    <h1>HelloWorld HTML</h1>
+    <div class="container">
+        <h1 th:text="${message}">Welcome to My Web App!</h1>
+        <p>This is a nice webpage created using Spring Boot and Thymeleaf.</p>
+    </div>
 </body>
 </html>

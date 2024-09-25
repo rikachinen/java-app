@@ -28,9 +28,8 @@ public class GreetingController {
 	}
 
 	@GetMapping("/hello")
-	public String getHelloHtml() throws IOException {
-		Resource resource = new ClassPathResource("../resources/public/hello.html");
-		byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
-		return new String(bytes);
-	}	
+    public String hello(Model model) {
+        model.addAttribute("message", "Welcome to My Web App!");
+        return "hello";
+    }	
 }
