@@ -39,13 +39,13 @@ public class GreetingController {
 	}
 
 	@GetMapping("/hello")
-    public String hello(Model model) {
+    public Hello hello(Model model) {
         model.addAttribute("message", "Welcome to My Web App!");
         return "hello";
     }
 
     @GetMapping("/hellotest")
-    public void hello(HttpServletResponse response) throws IOException {
+    public Hello hello(HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
