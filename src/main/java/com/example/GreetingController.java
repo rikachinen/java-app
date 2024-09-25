@@ -1,5 +1,5 @@
 package com.example;
-package com.example.demo;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
