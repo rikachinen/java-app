@@ -44,7 +44,7 @@ public class GreetingController {
         return "hello";
     }
 
-    @GetMapping("/error")
+    @GetMapping("/hellotest")
     public void hello(HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
