@@ -7,6 +7,9 @@ env:
       CODEBUILD_GIT_BRANCH: "main"
   parameter-store:
       BC_API_KEY: "bc-api-key"
+      DOCKER_USER: "dockerhub-user"
+      DOCKER_TOKEN: "dockerhub-token"
+
 
 phases:
   install:
@@ -33,6 +36,7 @@ phases:
       - checkov -s -d . --framework kubernetes --bc-api-key $BC_API_KEY --prisma-api-url $PRISMA_API_URL --repo-id 266735839757:project/$CODEBUILD_PROJECT -o cli -o junitxml --output-file-path console,test_results.xml
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 266735839757.dkr.ecr.ap-northeast-1.amazonaws.com
+      - echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
       - IMAGE_REPO_NAME=266735839757.dkr.ecr.ap-northeast-1.amazonaws.com/java-app
       - IMAGE_TAG=v1.0.0.RELEASE
 
