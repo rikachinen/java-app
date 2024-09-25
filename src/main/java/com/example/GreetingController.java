@@ -36,5 +36,39 @@ public class GreetingController {
     public String hello(Model model) {
         model.addAttribute("message", "Welcome to My Web App!");
         return "hello";
-    }	
+    }
+
+    @GetMapping("/hellotest")
+    public void hello(HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
+        String htmlResponse = "<!DOCTYPE html>"
+                + "<html>"
+                + "<head>"
+                + "    <title>My Web App</title>"
+                + "    <style>"
+                + "        body {"
+                + "            font-family: Arial, sans-serif;"
+                + "            background-color: #f4f4f4;"
+                + "            text-align: center;"
+                + "        }"
+                + "        .container {"
+                + "            margin-top: 100px;"
+                + "        }"
+                + "        h1 {"
+                + "            color: #336699;"
+                + "        }"
+                + "    </style>"
+                + "</head>"
+                + "<body>"
+                + "    <div class=\"container\">"
+                + "        <h1>Welcome to My Web App!</h1>"
+                + "        <p>This is a nice webpage created using Java and Spring Boot.</p>"
+                + "    </div>"
+                + "</body>"
+                + "</html>";
+
+        response.getWriter().write(htmlResponse);
+    }
 }
