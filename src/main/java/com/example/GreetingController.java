@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @RestController
 public class GreetingController {
     private static final String template = "Hello, %s!";
@@ -33,4 +39,11 @@ public class GreetingController {
 		byte[] bytes = StreamUtils.copyToByteArray(resource.getInputStream());
 		return new String(bytes);
 	}	
+}
+
+
+public class WelcomeServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
+    }
 }
