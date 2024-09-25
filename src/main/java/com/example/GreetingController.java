@@ -1,3 +1,4 @@
+package com.example;
 package com.example.demo;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-package com.example;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
