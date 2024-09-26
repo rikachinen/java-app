@@ -9,7 +9,7 @@ env:
       BC_API_KEY: "bc-api-key"
       DOCKER_USER: "dockerhub-user"
       DOCKER_TOKEN: "dockerhub-token"
-
+      PASSWORD: "pa4O(9>Gf4.7-this-is-a-fake-password"
 
 phases:
   install:
